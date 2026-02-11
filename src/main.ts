@@ -14,7 +14,7 @@ async function bootstrap() {
     
   // configuracion de CORS
   app.enableCors({
-    origin: ['http://localhost:4321', 'https://transfereliud.vercel.app'],
+    origin: ['https://www.transfer-eliud.com/', 'https://transfereliud.vercel.app'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
