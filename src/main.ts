@@ -1,0 +1,34 @@
+import { NestFactory } from '@nestjs/core';
+import { ValidationPipe } from '@nestjs/common';
+
+
+
+// modulo principal de la aplicacion
+import { AppModule } from './app.module';
+
+
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+    
+  // configuracion de CORS
+  app.enableCors({
+    origin: ['http://localhost:4321', 'http://localhost:5173'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
+
+  
+  // Validación global de DTOs
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  );
+
+  await app.listen(process.env.PORT ?? 3000);
+}
+bootstrap();
