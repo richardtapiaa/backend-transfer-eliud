@@ -27,6 +27,10 @@ import { firebaseAdminProvider } from './modules/firebase/firebase.provider';
 import { EmailModule } from './modules/email/email.module';
 
 
+// modulo de comentarios
+import { ComentariosModule } from './comentarios/comentarios.module';
+
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -35,8 +39,8 @@ import { EmailModule } from './modules/email/email.module';
     }),
     ThrottlerModule.forRoot([
       {
-        ttl: 1800000, // 30 minutos en milisegundos
-        limit: 1, // 1 solicitud por TTL
+        ttl: 1800000, 
+        limit: 1, 
       },
     ]),
     DatabaseModule,
@@ -45,6 +49,7 @@ import { EmailModule } from './modules/email/email.module';
     ReservaModule,
     NotificacionesModule,
     EmailModule,
+    ComentariosModule ,
   ],
   controllers: [],
   providers: [

@@ -28,7 +28,7 @@ import { Notificacion } from '../modules/notificaciones/entities/notificacion.en
         entities: [Usuario, Reserva, TokenNotificacion, Notificacion],
         synchronize: false,
       }),
-    }),
+    }), 
   ],
 })
 export class DatabaseModule { }

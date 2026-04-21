@@ -6,7 +6,7 @@ export const firebaseAdminProvider = {
   provide: 'FIREBASE_ADMIN',
   useFactory: () => {
     if (!admin.apps.length) {
-      
+  
       if (process.env.FIREBASE_PROJECT_ID) {
         admin.initializeApp({
           credential: admin.credential.cert({
